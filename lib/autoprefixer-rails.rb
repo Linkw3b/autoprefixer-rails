@@ -35,4 +35,9 @@ require_relative 'autoprefixer-rails/result'
 require_relative 'autoprefixer-rails/version'
 require_relative 'autoprefixer-rails/processor'
 
+if defined?(Rails)
+  puts '----------------- Rails'
+else
+  puts '----------------- No Rails'
+
 require_relative 'autoprefixer-rails/railtie' if defined?(Rails)
