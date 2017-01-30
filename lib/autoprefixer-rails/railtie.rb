@@ -9,10 +9,12 @@ begin
       end
 
       if config.respond_to?(:assets) and not config.assets.nil?
+        puts '----------------- Assets'
         config.assets.configure do |env|
           AutoprefixerRails.install(env, config(env.root))
         end
       else
+        puts '----------------- Root'
         initializer :setup_autoprefixer, group: :all do |app|
           if defined? app.assets and not app.assets.nil?
             AutoprefixerRails.install(app.assets, config(app.root))
